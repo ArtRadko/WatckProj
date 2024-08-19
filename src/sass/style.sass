@@ -1,0 +1,297 @@
+@charset "UTF-8"
+@import url('./fonts.sass')
+
+body
+    font:
+        size: .875em
+        family: 'MuseoModernoReg', Verdana, sans-serif
+        weight: normal
+        style: normal
+    color: #0D0D0D
+    background-color: #fff
+
+%bold
+    font:
+        family: 'MuseoModernoBold', Verdana, sans-serif
+        weight: bold
+
+%medium
+    font:
+        family: 'MuseoModernoMedium', Verdana, sans-serif
+        weight: 500
+
+%light
+    font:
+        family: 'MuseoModernoLight', Verdana, sans-serif
+        weight: 300
+    
+%bg
+    background:
+        repeat: no-repeat
+        position: center
+        size: cover
+
+%btn
+    padding: 1em 2em
+    background-color: #C70101
+    color: #fff
+    text-transform: uppercase
+
+ul
+    padding: 0
+    margin: 0
+    list-style: none
+
+a
+    display: block
+    text-decoration: none
+
+header
+    @extend %bg
+    background-image: url('../img/header_bg.png')
+
+    color: #fff
+
+    .nav 
+        padding-top: 1.5em
+        
+        &__logo
+            @extend %bg
+            display: block
+            height: 3.2em
+            background-image: url('../img/logo.png')
+            background-size: contain
+            background-position: left
+
+        &__content
+            text-align: center
+
+            p
+                @extend %medium
+                margin-bottom: 0
+                font-size: .85em
+
+                span
+                    font-size: 1.5em
+
+
+        &__box-btn
+            display: flex
+            flex-direction: column
+
+            a
+                @extend %bold
+                font-size: 1.3em
+                color: #fff
+                text-decoration: none
+                text-align: right
+
+            .nav__btn
+                @extend %btn
+                align-self: flex-end
+                padding: .85em 1em
+                width: 60%
+                font-size: .85em
+
+    .header__content
+        display: flex
+        flex-direction: column
+        align-items: flex-end
+        padding-top: 4.5em
+        padding-bottom: 6em
+        
+        h1
+            @extend %medium
+            margin-bottom: 2.5em
+            font-size: 1.7em
+            text-align: right
+            
+            span
+                @extend %bold
+                font-size: 1.8em
+
+    .header__list
+        display: flex
+        flex-direction: row
+        justify-content: space-around
+        margin-bottom: 3em
+        width: 80%
+
+        .header__list-items
+            text-align: center
+
+            figure
+                @extend %bg
+                background-size: contain
+                height: 3em
+
+            p
+                margin: 0
+
+    .header__btn
+        @extend %btn
+        padding: 1em 2.5em
+        margin-bottom: 1em
+        font-size: 1.1em
+
+    p
+        font-size: 1.1em
+        margin: 0
+        a
+            display: inline
+            color: #fff
+            text-transform: uppercase
+            text-decoration: underline
+
+main
+    div.row
+        padding-top: 5em
+        padding-bottom: 5em
+    
+    .main__advantages
+        .main__advantages-title
+            margin-bottom: 5em
+
+            h2
+                @extend %bold
+                font-size: 2em
+                text-align: center
+                margin: 0
+        
+        .main__advantages-list
+            .main__advantages-items
+                display: flex
+                flex-direction: column
+                align-items: center
+                text-align: center
+                figure
+                    @extend %bg
+                    background-size: contain
+                    width: 5em
+                    height: 5em
+                    margin-bottom: 2em
+
+                h3
+                    @extend %bold
+                    font-size: 1.3em
+                    margin-bottom: 1.5em
+
+                p
+                    @extend %light
+                    margin: 0
+
+                    a
+                        display: inline
+                        color: #FF0000
+                        text-transform: uppercase
+                        text-decoration: underline
+
+footer
+    @extend %bg
+    background-image: url('../img/map.png')
+    height: 45em
+
+    .footer__content
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        align-items: center
+        width: 33em
+        height: 19.5em
+        padding: 3em 2em
+        margin: auto
+        color: #fff
+        background-color: #C70101
+
+        address
+            font-size: 1.4em
+            margin: 0
+
+        a
+            @extend %bold
+            color: #fff
+            font-size: 1.4em
+
+        .footer__list
+            display: flex
+            flex-direction: row
+            justify-content: space-around
+            width: 70%
+
+            .footer__list-items
+                a
+                    @extend %bg
+                    width: 3.5em
+                    height: 3.5em
+            
+@media only screen and (max-width : 1199px)
+    body
+        font:
+            size: calc( 1em - .5vw)
+    
+    header
+        .nav
+            .nav__btn
+                width: 100%
+
+@media only screen and (max-width : 991px)
+    body
+        font:
+            size: calc( 1em - .7vw)
+    header
+        .nav
+            &__content
+                display: none
+
+            .nav__btn
+                width: 70%
+
+@media only screen and (max-width : 767px)
+    body
+        font:
+            size: calc( 1em - 1vw)
+
+@media only screen and (max-width : 575px)
+    header
+        .nav
+            &__logo
+                background-position: center center
+
+            &__box-btn
+                display: none
+
+        .header__content
+            display: flex
+            flex-direction: column
+            align-items: center
+            padding-top: 2em
+            padding-bottom: 3em
+            
+            h1
+                font-size: 1.5em
+                text-align: center
+
+            .header__list
+                margin-bottom: 2em
+                width: 100%
+                justify-content: space-evenly
+
+    footer
+        height: auto
+
+        .footer__content
+            width: 100%
+            padding: 3em 1em
+
+            address
+                font-size: 1.2em
+                margin: 0
+
+            a
+                font-size: 1.2em
+
+            .footer__list
+                .footer__list-items
+                    a
+                        width: 3em
+                        height: 3em
