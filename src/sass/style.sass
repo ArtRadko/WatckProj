@@ -32,6 +32,7 @@ body
         size: cover
 
 %btn
+    @extend %medium
     padding: 1em 2em
     background-color: #C70101
     color: #fff
@@ -144,22 +145,46 @@ header
             text-decoration: underline
 
 main
-    div.row
+    section
         padding-top: 5em
         padding-bottom: 5em
-    
-    .main__advantages
-        .main__advantages-title
-            margin-bottom: 5em
 
-            h2
+    .main__title
+        margin-bottom: 5em
+
+        h2
+            @extend %bold
+            font-size: 2em
+            text-align: center
+            text-transform: uppercase
+            margin: 0
+
+    .main__list
+        .main__items
+            figure
+                @extend %bg
+                background-size: contain
+                min-height: 5em
+                margin-bottom: 0
+
+            h3
                 @extend %bold
-                font-size: 2em
-                text-align: center
+                font-size: 1.3em
+                margin-bottom: 1.5em
+
+            p
+                @extend %light
                 margin: 0
-        
-        .main__advantages-list
-            .main__advantages-items
+
+                a
+                    display: inline
+                    color: #FF0000
+                    text-transform: uppercase
+                    text-decoration: underline
+    
+    .main__advantages      
+        .main__list
+            .main__items
                 display: flex
                 flex-direction: column
                 align-items: center
@@ -168,23 +193,168 @@ main
                     @extend %bg
                     background-size: contain
                     width: 5em
-                    height: 5em
                     margin-bottom: 2em
 
-                h3
-                    @extend %bold
-                    font-size: 1.3em
-                    margin-bottom: 1.5em
+    .main__consultation
+        .main__title
+            margin-bottom: 2em
 
-                p
-                    @extend %light
-                    margin: 0
+            h2
+                font-size: 2.5em
+                line-height: 1.5em
+                color: #fff
+                text-align: left
+
+        .main__text
+            margin-bottom: 2em
+
+            p
+                font-size: 1.5em
+                line-height: 1.5em
+                color: #fff
+                text-align: left
+                margin: 0
+
+        .main__form
+            input
+                display: block
+                width: 100%
+                margin-bottom: 1em
+                padding: 1em 1.5em
+                border-radius: 3px
+                border: 0
+                
+                &::placeholder
+                    color: #4B4B4B
+
+            .main__form-btn
+                @extend %btn
+                @extend %medium
+                display: block
+                width: 100%
+                padding: 1em 1.5em
+                font-size: 1.2em
+
+    .main__slider
+        .carousel
+            .carousel-item
+                img
+                    margin: auto
+                    padding: 0 5em
+                    width: 100%
+                    height: auto
+
+            .carousel-control-prev
+                width: 5%
+                .carousel-control-prev-icon
+                    width: 2em
+                    height: 3.5em
+                    background-image: url('../img/chevron-left-solid.png')
+
+            .carousel-control-next
+                width: 5%
+                .carousel-control-next-icon
+                    width: 2em
+                    height: 3.5em
+                    background-image: url('../img/chevron-right-solid.png')
+
+    .main__catalog
+        .main__list-btn
+            margin-bottom: 5em
+            li
+                transform: skewX(-20deg)
+                a
+                    padding-top: 1em
+                    padding-bottom: 1em
+                    font-size: 1.1em
+                    text-transform: uppercase
+                    text-align: center
+                    border: 2px solid #D0D0D0
+                    background-color: #fff
+                    color: #6B6B6B
+
+                a.active
+                    border-color: #C70101
+                    background-color: #C70101
+                    color: #fff
+
+        .main__list
+            .main__items
+                &-inner
+                    text-align: center
+                    border: 2px solid #E8E8E8
+                    padding-top: 1.5em
+                    padding-bottom: 1.5em
+                    padding-right: 1.5em
+                    padding-left: 1.5em
+
+                    .main__items-info
+                        padding-left: 1em
+                        list-style-type: square
+                        text-align: left
+                        color: #C70101
+
+                        p
+                            @extend %light
+                            color: #555555
+
+                        li:not(:last-of-type)
+                            margin-bottom: 1em
+                    
+                &-top
+                    min-height: 25em
+
+                    figure
+                        @extend %bg
+                        width: 10em
+                        height: 15em
+                        margin-bottom: 1.5em
 
                     a
-                        display: inline
-                        color: #FF0000
+                        @extend %medium
+                        color: #C70101
                         text-transform: uppercase
                         text-decoration: underline
+
+                &-bottom
+                    p
+                        @extend %bold
+                        font-size: 1.5em
+                        line-height: 1em
+                        text-align: left
+                        
+                        span
+                            @extend %light
+                            font-size: .8em
+                            color: #555555
+                            text-decoration: line-through
+
+                    button
+                        @extend %btn
+                        font-size: .9em
+
+    .main__clients
+        .main__list
+            .main__items
+                figure
+                    background:
+                        repeat: no-repeat
+                        position: top
+                        size: contain
+                    height: 12em
+
+                h3
+                    margin-bottom: 0
+
+                span
+                    @extend %medium
+                    display: block
+                    color: #646464
+                    margin-bottom: 1.5em
+
+            .main__items:not(:last-of-type)
+                margin-bottom: 5em
+                    
 
 footer
     @extend %bg
@@ -251,6 +421,14 @@ footer
         font:
             size: calc( 1em - 1vw)
 
+    .main__clients
+        .main__list
+            .main__items
+                text-align: center
+
+                figure
+                    margin-bottom: 3em
+
 @media only screen and (max-width : 575px)
     header
         .nav
@@ -275,6 +453,46 @@ footer
                 margin-bottom: 2em
                 width: 100%
                 justify-content: space-evenly
+
+    main
+        .main__consultation
+            .main__title
+                h2
+                    font-size: 2em
+                    text-align: center
+
+            .main__text
+                margin-bottom: 2em
+
+                p
+                    font-size: 1.3em
+                    line-height: 1.5em
+                    text-align: center
+
+        .main__slider
+            .carousel
+                .carousel-item
+                    img
+                        padding: 0 3em
+    
+                .carousel-control-prev
+                    width: 10%
+                    > .carousel-control-prev-icon
+                        width: 1.5em
+                        height: 2.5em
+                        background-image: url('../img/chevron-left-solid.png')
+
+                .carousel-control-next
+                    width: 10%
+                    > .carousel-control-next-icon
+                        width: 1.5em
+                        height: 2.5em
+                        background-image: url('../img/chevron-right-solid.png')
+        
+        .main__catalog
+            .main__list-btn
+                li:not(:last-of-type)
+                    margin-bottom: 2em
 
     footer
         height: auto
